@@ -24,67 +24,103 @@ function UploadPage() {
   };
 
   return (
-    <div className="glass-card" style={{ animation: 'fadeIn 1s ease-in-out' }}>
-      <img src="https://via.placeholder.com/80?text=📄" alt="Upload Icon" className="logo" />
-      <h2 style={{ fontFamily: "'Orbitron', sans-serif" }}>Upload Resume and Paste Job Description</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={(e) => setResumeFile(e.target.files[0])}
-          required
+    <div
+      style={{
+        backgroundColor: '#7B3FE4',
+        minHeight: '70vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '2rem',
+        borderRadius: '70px'
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: '#f9f5ff',
+          borderRadius: '2rem',
+          padding: '2.5rem 2rem',
+          maxWidth: '700px',
+          width: '100%',
+          boxShadow: '0 10px 30px rgba(124, 58, 237, 0.15)',
+        }}
+      >
+        <h2
           style={{
-            padding: '0.75em',
-            border: '2px solid #D8B4FE',
-            borderRadius: '10px',
-            background: 'rgba(255, 255, 255, 0.05)',
-            color: '#F3E8FF',
-            fontFamily: "'Inter', sans-serif",
-            margin: '1em 0',
-            transition: 'all 0.3s ease',
-          }}
-        />
-        <textarea
-          rows="10"
-          placeholder="Paste job description here"
-          value={jobDesc}
-          onChange={(e) => setJobDesc(e.target.value)}
-          required
-          style={{
-            padding: '1em',
-            border: '2px solid #D8B4FE',
-            borderRadius: '10px',
-            background: 'rgba(255, 255, 255, 0.05)',
-            color: '#F3E8FF',
-            fontFamily: "'Inter', sans-serif",
-            margin: '1em 0',
-            transition: 'all 0.3s ease',
-            resize: 'vertical',
-            minHeight: '150px',
-          }}
-        />
-        <button
-          type="submit"
-          style={{
-            background: 'linear-gradient(45deg, #7B3FE4, #D8B4FE)',
-            boxShadow: '0 0 15px #C084FC',
-            transition: 'all 0.3s ease',
             fontFamily: "'Orbitron', sans-serif",
-            padding: '0.9em 2em',
-            borderRadius: '10px',
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.transform = 'scale(1.1)';
-            e.target.style.boxShadow = '0 0 25px #C084FC';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.transform = 'scale(1)';
-            e.target.style.boxShadow = '0 0 15px ';
+            fontSize: '1.75rem',
+            color: '#7B3FE4',
+            marginBottom: '1rem',
+            textAlign: 'center',
           }}
         >
-          Scan
-        </button>
-      </form>
+          Upload Resume and Paste Job Description
+        </h2>
+
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+          <input
+            type="file"
+            accept=".pdf"
+            required
+            onChange={(e) => setResumeFile(e.target.files[0])}
+            style={{
+              padding: '0.75rem',
+              border: '2px solid #D8B4FE',
+              borderRadius: '0.5rem',
+              backgroundColor: '#fff',
+              fontFamily: "'Inter', sans-serif",
+              marginBottom: '1.25rem',
+              cursor: 'pointer',
+            }}
+          />
+
+          <textarea
+            rows="10"
+            placeholder="Paste job description here"
+            value={jobDesc}
+            required
+            onChange={(e) => setJobDesc(e.target.value)}
+            style={{
+              padding: '1rem',
+              border: '2px solid #D8B4FE',
+              borderRadius: '.5rem',
+              backgroundColor: '#ffffff',
+              fontFamily: "'Inter', sans-serif",
+              marginBottom: '2rem',
+              resize: 'vertical',
+              color: '#4b5563',
+              minHeight: '150px',
+            }}
+          />
+
+          <button
+            type="submit"
+            style={{
+              padding: '0.9rem 2rem',
+              background: 'linear-gradient(to right, #7B3FE4, #C084FC)',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '0.5rem',
+              fontWeight: 'bold',
+              fontSize: '1rem',
+              fontFamily: "'Orbitron', sans-serif",
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(124, 58, 237, 0.3)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'scale(1.05)';
+              e.target.style.boxShadow = '0 6px 20px rgba(124, 58, 237, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'scale(1)';
+              e.target.style.boxShadow = '0 4px 12px rgba(124, 58, 237, 0.3)';
+            }}
+          >
+            Scan
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

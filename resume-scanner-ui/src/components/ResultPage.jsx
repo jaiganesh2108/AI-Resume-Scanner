@@ -15,46 +15,98 @@ function ResultPage() {
   }, [navigate]);
 
   return (
-    <div className="glass-card" style={{ animation: 'fadeIn 1s ease-in-out' }}>
-      <img src="https://via.placeholder.com/80?text=📊" alt="Result Icon" className="logo" />
-      <h2 style={{ fontFamily: "'Orbitron', sans-serif" }}>Match Score: {result?.score}%</h2>
-      <h3 style={{ fontFamily: "'Orbitron', sans-serif", marginTop: '1em' }}>Resume Preview:</h3>
-      <pre
+    <div
+      style={{
+        backgroundColor: '#ffffff',
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '2rem',
+      }}
+    >
+      <div
         style={{
-          background: 'rgba(255, 255, 255, 0.08)',
-          padding: '1.5em',
-          borderRadius: '12px',
-          maxHeight: '350px',
-          overflowY: 'auto',
-          color: '#F3E8FF',
-          border: '1px solid #D8B4FE',
-          boxShadow: 'inset 0 0 10px rgba(123, 63, 228, 0.2)',
-          fontFamily: "'Inter', sans-serif",
-          fontSize: '0.95em',
-          margin: '1em 0',
+          backgroundColor: '#f9f5ff',
+          borderRadius: '1rem',
+          padding: '2.5rem 2rem',
+          maxWidth: '700px',
+          width: '100%',
+          boxShadow: '0 10px 30px rgba(124, 58, 237, 0.15)',
         }}
       >
-        {result?.parsed_text}
-      </pre>
-      <button
-        onClick={() => navigate('/upload')}
-        style={{
-          background: 'linear-gradient(45deg, #7B3FE4, #D8B4FE)',
-          boxShadow: '0 0 15px #C084FC',
-          transition: 'all 0.3s ease',
-          fontFamily: "'Orbitron', sans-serif",
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.transform = 'scale(1.1)';
-          e.target.style.boxShadow = '0 0 25px #C084FC';
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.transform = 'scale(1)';
-          e.target.style.boxShadow = '0 0 15px #C084FC';
-        }}
-      >
-        Try Another
-      </button>
+        <h2
+          style={{
+            fontFamily: "'Orbitron', sans-serif",
+            fontSize: '1.75rem',
+            color: '#7B3FE4',
+            marginBottom: '1rem',
+            textAlign: 'center',
+          }}
+        >
+          Match Score: {result?.score}%
+        </h2>
+
+        <h3
+          style={{
+            fontFamily: "'Orbitron', sans-serif",
+            fontSize: '1.25rem',
+            color: '#4b5563',
+            marginBottom: '1rem',
+            textAlign: 'center',
+          }}
+        >
+          Resume Preview:
+        </h3>
+
+        <pre
+          style={{
+            backgroundColor: '#ffffff',
+            padding: '1.25rem',
+            border: '2px solid #D8B4FE',
+            borderRadius: '0.75rem',
+            maxHeight: '350px',
+            overflowY: 'auto',
+            fontFamily: "'Inter', monospace",
+            fontSize: '0.95rem',
+            color: '#4b5563',
+            whiteSpace: 'pre-wrap',
+            lineHeight: '1.5',
+            marginBottom: '2rem',
+          }}
+        >
+          {result?.parsed_text}
+        </pre>
+
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button
+            onClick={() => navigate('/upload')}
+            style={{
+              padding: '0.9rem 2rem',
+              background: 'linear-gradient(to right, #7B3FE4, #C084FC)',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '0.5rem',
+              fontWeight: 'bold',
+              fontSize: '1rem',
+              fontFamily: "'Orbitron', sans-serif",
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(124, 58, 237, 0.3)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'scale(1.05)';
+              e.target.style.boxShadow = '0 6px 20px rgba(124, 58, 237, 0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'scale(1)';
+              e.target.style.boxShadow = '0 4px 12px rgba(124, 58, 237, 0.3)';
+            }}
+          >
+            Try Another
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
